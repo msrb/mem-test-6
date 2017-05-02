@@ -28,11 +28,7 @@ def utils = new io.fabric8.Utils()
 def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
 
 mavenNode {
-  properties(
-    [
-      pipelineTriggers([cron('*/3 * * * *')]),
-    ]
-  )  
+
   
   
   checkout scm
