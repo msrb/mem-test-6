@@ -29,7 +29,11 @@ def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').rep
 
 mavenNode {
 
-  
+  properties(
+    [
+      pipelineTriggers([cron('*/3 * * * *')]),
+    ]
+  )  
   
   checkout scm
   if (utils.isCI()){
